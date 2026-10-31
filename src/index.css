@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", "Manrope", system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --color-forest: #071C1A;
+  --color-forest-dark: #04100F;
+  --color-emerald: #064E46;
+  --color-emerald-deep: #053B35;
+  --color-mint: #27D7AC;
+  --color-mint-bright: #38EFBF;
+  --color-sage: #B7F3D7;
+  --color-mist: #F3FAF7;
+  --color-navy-dark: #06151E;
+  
+  --color-surface-glass: rgba(6, 78, 70, 0.28);
+  --color-surface-card: #0A2421;
+  --color-border-glass: rgba(39, 215, 172, 0.25);
+  --color-border-subtle: #0B332F;
+  --color-text-muted: #8EB7A8;
+  --color-text-subtle: #C3E5D8;
+}
+
+:root {
+  /* Emerald Glass Lab Design Tokens */
+  --bg-forest: #071C1A;
+  --surface-emerald: #064E46;
+  --surface-card: #0A2421;
+  --action-mint: #27D7AC;
+  --accent-sage: #B7F3D7;
+  --text-mist: #F3FAF7;
+  --text-muted: #8EB7A8;
+  --text-subtle: #C3E5D8;
+  --border-glass: rgba(39, 215, 172, 0.25);
+  --border-glow: rgba(39, 215, 172, 0.45);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #071C1A;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(39, 215, 172, 0.12) 0px, transparent 55%),
+    radial-gradient(at 100% 20%, rgba(6, 78, 70, 0.35) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(3, 15, 14, 0.8) 0px, transparent 60%);
+  background-attachment: fixed;
+  color: #F3FAF7;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  color: #F3FAF7;
+}
+
+/* Accessible luminous focus ring */
+:focus-visible {
+  outline: 2px solid #27D7AC;
+  outline-offset: 2px;
+}
+
+/* Translucent Emerald Glass Utilities */
+.glass-panel {
+  background: rgba(6, 78, 70, 0.22);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(39, 215, 172, 0.22);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(183, 243, 215, 0.12);
+}
+
+.glass-panel-deep {
+  background: rgba(7, 28, 26, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(39, 215, 172, 0.28);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(183, 243, 215, 0.15);
+}
+
+/* Card hover physics with mint electric glow */
+.card-hover-effect {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-2.5px);
+  box-shadow: 0 14px 35px -5px rgba(0, 0, 0, 0.6), 0 0 22px rgba(39, 215, 172, 0.25);
+  border-color: rgba(39, 215, 172, 0.6);
+}
+
+/* Luminous Mint Button */
+.btn-mint-glow {
+  background: linear-gradient(135deg, #27D7AC 0%, #1FB992 100%);
+  color: #04100F;
+  font-weight: 700;
+  box-shadow: 0 0 20px rgba(39, 215, 172, 0.45);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-mint-glow:hover {
+  background: linear-gradient(135deg, #38EFBF 0%, #27D7AC 100%);
+  box-shadow: 0 0 30px rgba(39, 215, 172, 0.7);
+  transform: translateY(-1px);
+}
+
+/* Translucent Glass Pill Badge */
+.badge-glass-mint {
+  background: rgba(39, 215, 172, 0.12);
+  color: #27D7AC;
+  border: 1px solid rgba(39, 215, 172, 0.35);
+  backdrop-filter: blur(8px);
+}
+
+.badge-glass-sage {
+  background: rgba(183, 243, 215, 0.10);
+  color: #B7F3D7;
+  border: 1px solid rgba(183, 243, 215, 0.25);
+}
+
+/* Custom emerald dark scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #04100F;
+}
+::-webkit-scrollbar-thumb {
+  background: #0B332F;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #27D7AC;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
